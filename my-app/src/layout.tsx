@@ -11,6 +11,11 @@ import card4 from "./images/card4.png";
 import card5 from "./images/card5.png";
 import viza from "./images/visa.png";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const notify = () => toast("Card qo'shildi");
+
 const LayoutPage = () => {
   const [vizacard, mycards] = useState(false);
   const [cards, setCards] = useState([
@@ -55,6 +60,7 @@ const LayoutPage = () => {
     setCards([...cards, newCard]);
     setNewCard({ cardNumber: "", cardHolder: "", expiryDate: "", img: "" });
     mycards(false);
+    notify();
   };
 
   const inputvaluesi = (
@@ -75,6 +81,7 @@ const LayoutPage = () => {
         position: "relative",
       }}
     >
+      <ToastContainer />
       <img
         className="hidden lg:block"
         style={{
